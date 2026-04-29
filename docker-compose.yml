@@ -1,0 +1,52 @@
+version: '3.9'
+
+services:
+  # ── Backend: Flask API ───────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: vulnscan-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    networks:
+      - vulnscan-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # ── Frontend: Angular (served via Nginx) ─────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vulnscan-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - vulnscan-net
+    restart: unless-stopped
+
+  # ── Vulnerable Test App ───────────────────────────────────────────────────────
+  vulnapp:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.vulnapp
+    container_name: vulnscan-vulnapp
+    ports:
+      - "8080:8080"
+    networks:
+      - vulnscan-net
+    restart: unless-stopped
+
+networks:
+  vulnscan-net:
+    driver: bridge

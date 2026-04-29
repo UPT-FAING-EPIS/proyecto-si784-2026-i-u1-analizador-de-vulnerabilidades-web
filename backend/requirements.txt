@@ -1,0 +1,17 @@
+# Web framework
+flask==3.0.3
+flask-cors==4.0.1
+gunicorn==22.0.0
+
+# HTTP y parsing
+requests==2.32.3
+beautifulsoup4==4.12.3
+lxml==5.2.2
+urllib3==2.2.2
+
+# Monitoreo de errores (Sentry)
+# Solo se activa si SENTRY_DSN está configurado
+sentry-sdk[flask]==2.3.1
+
+# Variables de entorno para desarrollo local
+python-dotenv==1.0.1

@@ -1,0 +1,220 @@
+<div class="report-page">
+
+  <!-- No scan -->
+  <div class="empty-state" *ngIf="!scan">
+    <div class="empty-icon">📄</div>
+    <h2>Sin reporte disponible</h2>
+    <p>Ejecuta un escaneo para generar un reporte.</p>
+    <a routerLink="/" class="btn btn--primary" style="margin-top:16px;display:inline-flex">← Ir al Scanner</a>
+  </div>
+
+  <ng-container *ngIf="scan?.results">
+
+    <!-- ── Header ────────────────────────────────────────── -->
+    <div class="report-header">
+      <div class="report-brand">
+        <span class="brand-icon">🛡️</span>
+        <div>
+          <h1 class="report-title">Reporte de Seguridad Web</h1>
+          <p class="report-sub">VulnScan v1.0.0 · OWASP Top 10:2021</p>
+        </div>
+      </div>
+      <div class="export-actions">
+        <button class="btn btn--secondary" (click)="copyJSON()">📋 Copiar JSON</button>
+        <button class="btn btn--secondary" (click)="exportJSON()">⬇ Descargar JSON</button>
+        <button class="btn btn--primary"   (click)="exportHTML()">⬇ Descargar HTML</button>
+      </div>
+    </div>
+
+    <!-- ── Metadata ──────────────────────────────────────── -->
+    <div class="meta-card">
+      <div class="meta-item">
+        <span class="meta-label">Objetivo</span>
+        <span class="meta-value mono">{{ scan!.url }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Generado</span>
+        <span class="meta-value">{{ generatedAt }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Duración</span>
+        <span class="meta-value">{{ scan!.results!.duration_seconds }}s</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">URLs rastreadas</span>
+        <span class="meta-value">{{ scan!.results!.urls_crawled }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Formularios</span>
+        <span class="meta-value">{{ scan!.results!.forms_found }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Total hallazgos</span>
+        <span class="meta-value highlight">{{ scan!.results!.total_findings }}</span>
+      </div>
+    </div>
+
+    <!-- ── Severity summary ──────────────────────────────── -->
+    <div class="section-title-row">
+      <h2>Resumen por Severidad</h2>
+    </div>
+
+    <div class="severity-grid">
+      <div class="sev-card sev-card--critical">
+        <div class="sev-card__num">{{ summary['critical'] ?? 0 }}</div>
+        <div class="sev-card__label">Crítico</div>
+        <div class="sev-card__desc">Riesgo inmediato · explotación trivial</div>
+      </div>
+      <div class="sev-card sev-card--high">
+        <div class="sev-card__num">{{ summary['high'] ?? 0 }}</div>
+        <div class="sev-card__label">Alto</div>
+        <div class="sev-card__desc">Impacto severo · acción urgente</div>
+      </div>
+      <div class="sev-card sev-card--medium">
+        <div class="sev-card__num">{{ summary['medium'] ?? 0 }}</div>
+        <div class="sev-card__label">Medio</div>
+        <div class="sev-card__desc">Riesgo moderado · remediar pronto</div>
+      </div>
+      <div class="sev-card sev-card--low">
+        <div class="sev-card__num">{{ summary['low'] ?? 0 }}</div>
+        <div class="sev-card__label">Bajo</div>
+        <div class="sev-card__desc">Riesgo menor · mejora recomendada</div>
+      </div>
+      <div class="sev-card sev-card--info">
+        <div class="sev-card__num">{{ summary['info'] ?? 0 }}</div>
+        <div class="sev-card__label">Info</div>
+        <div class="sev-card__desc">Informativo · sin riesgo directo</div>
+      </div>
+    </div>
+
+    <!-- ── Findings table ────────────────────────────────── -->
+    <div class="section-title-row">
+      <h2>Hallazgos Detallados</h2>
+      <span class="count-pill">{{ findings.length }}</span>
+    </div>
+
+    <div class="empty-filter" *ngIf="findings.length === 0">
+      <p>✅ Sin vulnerabilidades detectadas en este escaneo.</p>
+    </div>
+
+    <div class="report-table-wrap" *ngIf="findings.length > 0">
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th style="width:90px">Severidad</th>
+            <th>Vulnerabilidad</th>
+            <th>URL / Objetivo</th>
+            <th>Parámetro</th>
+            <th>OWASP</th>
+            <th>CWE</th>
+            <th>CVSS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let f of findings">
+            <!-- Main row -->
+            <tr class="finding-row" [attr.data-sev]="f.severity">
+              <td>
+                <span class="sev-badge" [ngClass]="severityClass(f.severity)">
+                  {{ f.severity | severity }}
+                </span>
+              </td>
+              <td class="name-cell">{{ f.name }}</td>
+              <td class="url-cell" [title]="f.url">{{ f.url }}</td>
+              <td class="mono-cell">{{ f.parameter ?? f.header ?? f.cookie_name ?? '—' }}</td>
+              <td class="tag-cell">{{ f.owasp }}</td>
+              <td class="tag-cell">{{ f.cwe }}</td>
+              <td class="tag-cell">{{ f.cvss_range }}</td>
+            </tr>
+            <!-- Evidence + remediation sub-row -->
+            <tr class="detail-row">
+              <td colspan="7">
+                <div class="detail-content">
+                  <div class="detail-block" *ngIf="f.evidence">
+                    <span class="detail-key">Evidencia:</span>
+                    <code class="detail-code">{{ f.evidence }}</code>
+                  </div>
+                  <div class="detail-block" *ngIf="f.payload">
+                    <span class="detail-key">Payload:</span>
+                    <code class="detail-code danger">{{ f.payload }}</code>
+                  </div>
+                  <div class="detail-block">
+                    <span class="detail-key">Descripción:</span>
+                    <span class="detail-text">{{ f.description }}</span>
+                  </div>
+                  <div class="detail-block">
+                    <span class="detail-key">Remediación:</span>
+                    <ul class="rem-list">
+                      <li *ngFor="let r of f.remediation">{{ r }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── Coverage ──────────────────────────────────────── -->
+    <div class="coverage-section">
+      <h2>Cobertura de Pruebas OWASP Top 10:2021</h2>
+      <div class="coverage-grid">
+        <div class="cov-item cov-item--covered">
+          <span class="cov-icon">✅</span>
+          <div>
+            <div class="cov-cat">A03:2021 – Injection</div>
+            <div class="cov-desc">XSS (CWE-79) · SQL Injection (CWE-89)</div>
+          </div>
+        </div>
+        <div class="cov-item cov-item--covered">
+          <span class="cov-icon">✅</span>
+          <div>
+            <div class="cov-cat">A05:2021 – Security Misconfiguration</div>
+            <div class="cov-desc">Cabeceras HTTP · Cookies · Info disclosure</div>
+          </div>
+        </div>
+        <div class="cov-item cov-item--covered">
+          <span class="cov-icon">✅</span>
+          <div>
+            <div class="cov-cat">A01:2021 – Broken Access Control</div>
+            <div class="cov-desc">CSRF (CWE-352) · Formularios POST sin token</div>
+          </div>
+        </div>
+        <div class="cov-item cov-item--partial">
+          <span class="cov-icon">🔜</span>
+          <div>
+            <div class="cov-cat">A02:2021 – Cryptographic Failures</div>
+            <div class="cov-desc">HTTP sin TLS · Cookies sin Secure flag</div>
+          </div>
+        </div>
+        <div class="cov-item cov-item--pending">
+          <span class="cov-icon">⬜</span>
+          <div>
+            <div class="cov-cat">A07:2021 – Identification Failures</div>
+            <div class="cov-desc">Credenciales por defecto · Fuerza bruta</div>
+          </div>
+        </div>
+        <div class="cov-item cov-item--pending">
+          <span class="cov-icon">⬜</span>
+          <div>
+            <div class="cov-cat">A09:2021 – Security Logging Failures</div>
+            <div class="cov-desc">Trazabilidad · Manejo de errores</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Disclaimer ─────────────────────────────────────── -->
+    <div class="disclaimer">
+      <span class="disclaimer-icon">⚠️</span>
+      <p>
+        <strong>Aviso legal:</strong> VulnScan es una herramienta educativa de apoyo en pruebas de
+        calidad de software. Su uso está autorizado únicamente sobre sistemas propios o con permiso
+        escrito explícito. El uso no autorizado puede ser ilegal.
+      </p>
+    </div>
+
+  </ng-container>
+
+</div>

@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="navbar__brand">
+    <span class="navbar__icon">🛡️</span>
+    <span class="navbar__title">VulnScan</span>
+    <span class="navbar__version">v1.0.0</span>
+  </div>
+
+  <ul class="navbar__links">
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        Scanner
+      </a>
+    </li>
+    <li>
+      <a routerLink="/results" routerLinkActive="active">
+        Resultados
+        <span class="badge" *ngIf="(findingsCount$ | async) as count">{{ count }}</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/history" routerLinkActive="active">Historial</a>
+    </li>
+    <li>
+      <a routerLink="/report" routerLinkActive="active">Reporte</a>
+    </li>
+  </ul>
+
+  <div class="navbar__meta">
+    <span class="owasp-badge">OWASP Top 10 · 2021</span>
+  </div>
+</nav>

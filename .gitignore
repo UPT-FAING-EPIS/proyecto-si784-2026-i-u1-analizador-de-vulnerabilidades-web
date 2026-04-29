@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+env/
+.env
+*.egg-info/
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+
+# Databases
+*.db
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Azure publish profiles - NEVER commit these
+*.PublishSettings
+*.pubxml
+
+# Local ZIPs
+vulnscan-*.zip
