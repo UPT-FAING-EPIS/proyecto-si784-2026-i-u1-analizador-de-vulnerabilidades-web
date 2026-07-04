@@ -1,0 +1,108 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e30] [cursor=pointer]:
+    - img [ref=e31]
+  - alert [ref=e34]
+  - main [ref=e168]:
+    - generic [ref=e169]:
+      - generic [ref=e170]:
+        - img [ref=e172]
+        - generic [ref=e175]:
+          - heading "API Key management" [level=1] [ref=e176]
+          - paragraph [ref=e177]: Administrador
+      - generic [ref=e178]:
+        - link "Dashboard" [ref=e179] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e180]
+          - text: Dashboard
+        - button "Actualizar" [ref=e182] [cursor=pointer]:
+          - img [ref=e183]
+          - text: Actualizar
+        - button "Salir" [ref=e188] [cursor=pointer]:
+          - img [ref=e189]
+          - text: Salir
+    - generic [ref=e192]:
+      - generic [ref=e193]:
+        - generic [ref=e194]:
+          - generic [ref=e195]:
+            - generic [ref=e196]:
+              - heading "Crear API key" [level=2] [ref=e197]
+              - paragraph [ref=e198]: Usala para que otros sistemas consuman tus servicios.
+            - img [ref=e199]
+          - generic [ref=e201]:
+            - generic [ref=e202]:
+              - generic [ref=e203]: Nombre
+              - textbox "Nombre" [ref=e204]: Integracion externa
+            - generic [ref=e205]:
+              - generic [ref=e206]: Expiracion
+              - combobox "Expiracion" [ref=e207]:
+                - option "30 dias"
+                - option "90 dias" [selected]
+                - option "180 dias"
+                - option "365 dias"
+                - option "Sin expiracion"
+            - button "Generar API key" [ref=e208] [cursor=pointer]:
+              - img [ref=e209]
+              - text: Generar API key
+        - generic [ref=e212]:
+          - generic [ref=e213]:
+            - generic [ref=e214]:
+              - heading "Uso externo" [level=2] [ref=e215]
+              - paragraph [ref=e216]: Ejemplos para integrar otros sistemas.
+            - img [ref=e217]
+          - generic [ref=e221]:
+            - code [ref=e222]: "curl -H \"X-API-Key: TU_API_KEY\" http://localhost:8000/api/integrations/stats"
+            - code [ref=e223]: "curl -H \"Authorization: Bearer TU_API_KEY\" http://localhost:8000/api/integrations/scans"
+            - code [ref=e224]: POST http://localhost:8000/api/integrations/scans
+      - generic [ref=e225]:
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - heading "API keys" [level=2] [ref=e228]
+            - paragraph [ref=e229]: Solo se guarda el hash; las claves completas no se pueden recuperar.
+          - img [ref=e230]
+        - table [ref=e234]:
+          - rowgroup [ref=e235]:
+            - row "Nombre Prefijo Estado Creacion Ultimo uso Expira Accion" [ref=e236] [cursor=pointer]:
+              - columnheader "Nombre" [ref=e237]
+              - columnheader "Prefijo" [ref=e238]
+              - columnheader "Estado" [ref=e239]
+              - columnheader "Creacion" [ref=e240]
+              - columnheader "Ultimo uso" [ref=e241]
+              - columnheader "Expira" [ref=e242]
+              - columnheader "Accion" [ref=e243]
+          - rowgroup [ref=e244]:
+            - row "Verificacion UI Codex wvs_proeliLAL7eN... Revocada 8 jun. 2026, 7:56 p. m. Nunca 7 set. 2026, 12:56 a. m." [ref=e245] [cursor=pointer]:
+              - cell "Verificacion UI Codex" [ref=e246]
+              - cell "wvs_proeliLAL7eN..." [ref=e247]:
+                - code [ref=e248]: wvs_proeliLAL7eN...
+              - cell "Revocada" [ref=e249]:
+                - generic [ref=e250]: Revocada
+              - cell "8 jun. 2026, 7:56 p. m." [ref=e251]
+              - cell "Nunca" [ref=e252]
+              - cell "7 set. 2026, 12:56 a. m." [ref=e253]
+              - cell [ref=e254]:
+                - button "Revocar API key" [disabled] [ref=e255]:
+                  - img [ref=e256]
+            - row "Prueba integracion Codex wvs_rIrbH6kozkKd... Revocada 8 jun. 2026, 7:54 p. m. 9 jun. 2026, 12:54 a. m. 9 jul. 2026, 12:54 a. m." [ref=e259] [cursor=pointer]:
+              - cell "Prueba integracion Codex" [ref=e260]
+              - cell "wvs_rIrbH6kozkKd..." [ref=e261]:
+                - code [ref=e262]: wvs_rIrbH6kozkKd...
+              - cell "Revocada" [ref=e263]:
+                - generic [ref=e264]: Revocada
+              - cell "8 jun. 2026, 7:54 p. m." [ref=e265]
+              - cell "9 jun. 2026, 12:54 a. m." [ref=e266]
+              - cell "9 jul. 2026, 12:54 a. m." [ref=e267]
+              - cell [ref=e268]:
+                - button "Revocar API key" [disabled] [ref=e269]:
+                  - img [ref=e270]
+            - row "Prueba integracion wvs_7FBjnladWZbU... Revocada 8 jun. 2026, 7:52 p. m. 9 jun. 2026, 12:52 a. m. 9 jul. 2026, 12:52 a. m." [ref=e273] [cursor=pointer]:
+              - cell "Prueba integracion" [ref=e274]
+              - cell "wvs_7FBjnladWZbU..." [ref=e275]:
+                - code [ref=e276]: wvs_7FBjnladWZbU...
+              - cell "Revocada" [ref=e277]:
+                - generic [ref=e278]: Revocada
+              - cell "8 jun. 2026, 7:52 p. m." [ref=e279]
+              - cell "9 jun. 2026, 12:52 a. m." [ref=e280]
+              - cell "9 jul. 2026, 12:52 a. m." [ref=e281]
+              - cell [ref=e282]:
+                - button "Revocar API key" [disabled] [ref=e283]:
+                  - img [ref=e284]

@@ -1,0 +1,24 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - img [ref=e4]
+      - heading "Web Vulnerability Scanner" [level=1] [ref=e7]
+      - paragraph [ref=e8]: Inicia sesion para lanzar auditorias web, revisar hallazgos OWASP y consultar reportes con contexto automatico.
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - heading "Entrar" [level=2] [ref=e12]
+        - paragraph [ref=e13]: Usa tu cuenta para acceder al panel de escaneos.
+      - generic [ref=e14]:
+        - generic [ref=e15]: Correo
+        - textbox "Correo" [ref=e16]
+      - generic [ref=e17]:
+        - generic [ref=e18]: Contrasena
+        - textbox "Contrasena" [ref=e19]
+      - button "Entrar" [ref=e20] [cursor=pointer]:
+        - img [ref=e21]
+        - text: Entrar
+      - link "Crear cuenta" [ref=e24] [cursor=pointer]:
+        - /url: /register
+  - button "Open Next.js Dev Tools" [ref=e30] [cursor=pointer]:
+    - img [ref=e31]
+  - alert [ref=e34]

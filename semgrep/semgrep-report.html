@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Semgrep — Web Vulnerability Scanner</title>
+  <style>
+    body{font-family:system-ui,sans-serif;margin:0;background:#f4f6f9;color:#1a1a1a}
+    .header{background:#2c3e50;color:white;padding:20px 30px}
+    .header h1{margin:0;font-size:22px}
+    .header p{margin:4px 0 0;opacity:.7;font-size:13px}
+    .container{padding:20px 30px}
+    .cards{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+    .card{background:white;border-radius:8px;padding:16px 20px;min-width:120px;border-top:3px solid #ccc;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+    .card.err{border-color:#c0392b} .card.warn{border-color:#e67e22} .card.info{border-color:#2980b9} .card.ok{border-color:#27ae60}
+    .card .val{font-size:28px;font-weight:800;margin:0}
+    .card .lbl{font-size:12px;color:#888;margin-top:2px}
+    table{width:100%;border-collapse:collapse;background:white;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+    th{background:#2c3e50;color:white;padding:10px 14px;text-align:left;font-size:12px}
+    td{padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:12px;vertical-align:top}
+    tr:last-child td{border-bottom:none}
+    tr:hover{background:#f8fafc}
+    code{background:#f0f4f8;padding:2px 5px;border-radius:3px;font-size:11px}
+    .empty{text-align:center;padding:30px;color:#27ae60;font-size:15px}
+  </style>
+</head>
+<body>
+<div class="header">
+  <h1>🔍 Reporte Semgrep — Web Vulnerability Scanner</h1>
+  <p>Análisis estático OWASP Top 10 + Python Security · 2026-07-04 17:49 UTC</p>
+</div>
+<div class="container">
+  <div class="cards">
+    <div class="card err">
+      <p class="val">1</p><p class="lbl">Errores críticos</p>
+    </div>
+    <div class="card ok">
+      <p class="val">0</p><p class="lbl">Advertencias</p>
+    </div>
+    <div class="card info">
+      <p class="val">0</p><p class="lbl">Informativo</p>
+    </div>
+    <div class="card ok">
+      <p class="val">1</p><p class="lbl">Total hallazgos</p>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>Severidad</th><th>Archivo</th><th>Regla</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><span style="background:#c0392b;color:white;padding:2px 8px;border-radius:10px;font-size:11px">ERROR</span></td><td><code>app/init_db.py:13</code></td><td>avoid-sqlalchemy-text</td><td>sqlalchemy.text passes the constructed SQL statement to the database mostly unchanged. This means that the usual SQL injection protections are not applied and this function is vulnerable to SQL inject</td></tr>
+    </tbody>
+  </table>
+</div>
+</body></html>

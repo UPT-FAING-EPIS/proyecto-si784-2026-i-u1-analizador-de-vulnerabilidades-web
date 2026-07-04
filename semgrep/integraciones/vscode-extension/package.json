@@ -1,0 +1,63 @@
+{
+  "name": "wvs-vscode",
+  "displayName": "Web Vulnerability Scanner",
+  "description": "Escanea vulnerabilidades web (XSS, SQLi, CSRF, cabeceras, etc.) desde VS Code usando Web Vulnerability Scanner",
+  "version": "0.0.2",
+  "publisher": "mary",
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UPT-FAING-EPIS/proyecto-si784-2026-i-u1-analizador-de-vulnerabilidades-web"
+  },
+  "keywords": [
+    "security",
+    "vulnerability scanner",
+    "xss",
+    "sqli",
+    "pentesting",
+    "web security"
+  ],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "wvs.startScan",
+        "title": "WVS: Iniciar Escaneo"
+      },
+      {
+        "command": "wvs.registerAndConfigure",
+        "title": "WVS: Registrarse y Configurar"
+      },
+      {
+        "command": "wvs.configure",
+        "title": "WVS: Configurar API Key"
+      }
+    ],
+    "configuration": {
+      "title": "WVS Configuration",
+      "properties": {
+        "wvs.apiUrl": {
+          "type": "string",
+          "default": "https://vulnerabilidad-web.sytes.net/backend",
+          "description": "URL base de la API del escaner"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "18.x",
+    "typescript": "^5.1.3"
+  }
+}

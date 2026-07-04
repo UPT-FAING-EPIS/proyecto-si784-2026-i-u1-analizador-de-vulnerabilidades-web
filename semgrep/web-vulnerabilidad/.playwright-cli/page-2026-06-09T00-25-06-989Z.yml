@@ -1,0 +1,121 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e30] [cursor=pointer]:
+    - img [ref=e31]
+  - alert [ref=e34]
+  - main [ref=e35]:
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - img [ref=e39]
+        - generic [ref=e42]:
+          - heading "Web Vulnerability Scanner" [level=1] [ref=e43]
+          - paragraph [ref=e44]: Administrador
+      - generic [ref=e45]:
+        - link "Admin" [ref=e46] [cursor=pointer]:
+          - /url: /admin
+          - img [ref=e47]
+          - text: Admin
+        - button "Actualizar" [ref=e59] [cursor=pointer]:
+          - img [ref=e60]
+          - text: Actualizar
+        - button "Salir" [ref=e65] [cursor=pointer]:
+          - img [ref=e66]
+          - text: Salir
+    - generic [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - heading "Nuevo escaneo" [level=2] [ref=e73]
+            - paragraph [ref=e74]: Ejecuta modulos OWASP sobre una URL autorizada.
+          - img [ref=e75]
+        - generic [ref=e81]:
+          - generic [ref=e82]: Error HTTP 500
+          - generic [ref=e83]:
+            - generic [ref=e84]: URL objetivo
+            - textbox "URL objetivo" [ref=e85]:
+              - /placeholder: https://dominio.com/
+              - text: https://example.com/
+          - generic [ref=e86]:
+            - generic [ref=e87]: Modulos
+            - generic [ref=e88]:
+              - generic [ref=e89] [cursor=pointer]:
+                - checkbox "XSS" [checked] [ref=e90]
+                - text: XSS
+              - generic [ref=e91] [cursor=pointer]:
+                - checkbox "SQLi" [checked] [ref=e92]
+                - text: SQLi
+              - generic [ref=e93] [cursor=pointer]:
+                - checkbox "Headers" [checked] [ref=e94]
+                - text: Headers
+              - generic [ref=e95] [cursor=pointer]:
+                - checkbox "CSRF" [checked] [ref=e96]
+                - text: CSRF
+              - generic [ref=e97] [cursor=pointer]:
+                - checkbox "Open redirect" [checked] [ref=e98]
+                - text: Open redirect
+              - generic [ref=e99] [cursor=pointer]:
+                - checkbox "Info disclosure" [checked] [ref=e100]
+                - text: Info disclosure
+          - generic [ref=e101]:
+            - generic [ref=e102]:
+              - generic [ref=e103]: Profundidad
+              - combobox "Profundidad" [ref=e104]:
+                - option "0 niveles"
+                - option "1 nivel" [selected]
+                - option "2 niveles"
+                - option "3 niveles"
+            - generic [ref=e105]:
+              - generic [ref=e106]: Timeout
+              - combobox "Timeout" [ref=e107]:
+                - option "5 s"
+                - option "10 s" [selected]
+                - option "20 s"
+                - option "30 s"
+          - button "Iniciar escaneo" [ref=e108] [cursor=pointer]:
+            - img [ref=e109]
+            - text: Iniciar escaneo
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: Escaneos
+            - strong [ref=e115]: "0"
+          - generic [ref=e116]:
+            - generic [ref=e117]: Completados
+            - strong [ref=e118]: "0"
+          - generic [ref=e119]:
+            - generic [ref=e120]: En curso
+            - strong [ref=e121]: "0"
+          - generic [ref=e122]:
+            - generic [ref=e123]: Hallazgos
+            - strong [ref=e124]: "0"
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - generic [ref=e127]:
+              - generic [ref=e128]:
+                - heading "Historial" [level=2] [ref=e129]
+                - paragraph [ref=e130]: Ultimos 50 escaneos de tu cuenta.
+              - img [ref=e131]
+            - table [ref=e135]:
+              - rowgroup [ref=e136]:
+                - row "Objetivo Estado Riesgo Hallazgos Progreso" [ref=e137] [cursor=pointer]:
+                  - columnheader "Objetivo" [ref=e138]
+                  - columnheader "Estado" [ref=e139]
+                  - columnheader "Riesgo" [ref=e140]
+                  - columnheader "Hallazgos" [ref=e141]
+                  - columnheader "Progreso" [ref=e142]
+              - rowgroup [ref=e143]:
+                - row "No hay escaneos registrados." [ref=e144] [cursor=pointer]:
+                  - cell "No hay escaneos registrados." [ref=e145]
+          - generic [ref=e146]:
+            - generic [ref=e147]:
+              - generic [ref=e148]:
+                - heading "Severidad" [level=2] [ref=e149]
+                - paragraph [ref=e150]: Distribucion de vulnerabilidades.
+              - img [ref=e151]
+            - img [ref=e155]
+        - generic [ref=e156]:
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - heading "Reporte" [level=2] [ref=e159]
+              - paragraph [ref=e160]: Selecciona un escaneo del historial.
+            - img [ref=e161]
+          - paragraph [ref=e164]: Todavia no se ha seleccionado un reporte.

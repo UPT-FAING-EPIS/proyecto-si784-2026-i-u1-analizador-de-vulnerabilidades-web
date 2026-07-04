@@ -1,0 +1,23 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - img [ref=e4]
+    - heading "Registro de analistas" [level=1] [ref=e6]
+    - paragraph [ref=e7]: Crea una cuenta para almacenar historial, reportes y resultados vinculados a tus escaneos autorizados.
+  - generic [ref=e9]:
+    - generic [ref=e10]:
+      - heading "Crear cuenta" [level=2] [ref=e11]
+      - paragraph [ref=e12]: La contrasena se almacena con hash bcrypt en el backend.
+    - generic [ref=e13]:
+      - generic [ref=e14]: Nombre
+      - textbox "Nombre" [ref=e15]
+    - generic [ref=e16]:
+      - generic [ref=e17]: Correo
+      - textbox "Correo" [ref=e18]
+    - generic [ref=e19]:
+      - generic [ref=e20]: Contrasena
+      - textbox "Contrasena" [ref=e21]
+    - button "Crear cuenta" [ref=e22] [cursor=pointer]:
+      - img [ref=e23]
+      - text: Crear cuenta
+    - link "Ya tengo cuenta" [ref=e25] [cursor=pointer]:
+      - /url: /login

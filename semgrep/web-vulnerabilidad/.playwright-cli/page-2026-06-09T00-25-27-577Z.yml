@@ -1,0 +1,129 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e30] [cursor=pointer]:
+    - img [ref=e31]
+  - alert [ref=e34]
+  - main [ref=e165]:
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - img [ref=e169]
+        - generic [ref=e181]:
+          - heading "Panel administrador" [level=1] [ref=e182]
+          - paragraph [ref=e183]: Administrador
+      - generic [ref=e184]:
+        - link "Dashboard" [ref=e185] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e186]
+          - text: Dashboard
+        - button "Actualizar" [ref=e188] [cursor=pointer]:
+          - img [ref=e189]
+          - text: Actualizar
+        - button "Salir" [ref=e194] [cursor=pointer]:
+          - img [ref=e195]
+          - text: Salir
+    - generic [ref=e198]:
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - generic [ref=e201]: Usuarios
+          - strong [ref=e202]: "9"
+        - generic [ref=e203]:
+          - generic [ref=e204]: Administradores
+          - strong [ref=e205]: "1"
+        - generic [ref=e206]:
+          - generic [ref=e207]: Escaneos
+          - strong [ref=e208]: "7"
+        - generic [ref=e209]:
+          - generic [ref=e210]: Hallazgos
+          - strong [ref=e211]: "329"
+      - generic [ref=e212]:
+        - generic [ref=e213]:
+          - generic [ref=e214]:
+            - generic [ref=e215]:
+              - heading "Registros diarios" [level=2] [ref=e216]
+              - paragraph [ref=e217]: Usuarios creados por dia durante los ultimos 14 dias.
+            - img [ref=e218]
+          - img [ref=e222]
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - heading "Usuarios recientes" [level=2] [ref=e226]
+              - paragraph [ref=e227]: Ultimas cuentas creadas en el sistema.
+            - img [ref=e228]
+          - table [ref=e234]:
+            - rowgroup [ref=e235]:
+              - row "Usuario Rol Registro" [ref=e236] [cursor=pointer]:
+                - columnheader "Usuario" [ref=e237]
+                - columnheader "Rol" [ref=e238]
+                - columnheader "Registro" [ref=e239]
+            - rowgroup [ref=e240]:
+              - row "Administrador administrador@gmail.com Admin 8 jun. 2026, 7:22 p. m." [ref=e241] [cursor=pointer]:
+                - cell "Administrador administrador@gmail.com" [ref=e242]:
+                  - strong [ref=e243]: Administrador
+                  - paragraph [ref=e244]: administrador@gmail.com
+                - cell "Admin" [ref=e245]:
+                  - generic [ref=e246]: Admin
+                - cell "8 jun. 2026, 7:22 p. m." [ref=e247]
+              - row "Usuario 3000 ui.3000.1780963355@local.test Usuario 8 jun. 2026, 7:02 p. m." [ref=e248] [cursor=pointer]:
+                - cell "Usuario 3000 ui.3000.1780963355@local.test" [ref=e249]:
+                  - strong [ref=e250]: Usuario 3000
+                  - paragraph [ref=e251]: ui.3000.1780963355@local.test
+                - cell "Usuario" [ref=e252]:
+                  - generic [ref=e253]: Usuario
+                - cell "8 jun. 2026, 7:02 p. m." [ref=e254]
+              - row "Port 3000 port3000.1780963337@local.test Usuario 8 jun. 2026, 7:02 p. m." [ref=e255] [cursor=pointer]:
+                - cell "Port 3000 port3000.1780963337@local.test" [ref=e256]:
+                  - strong [ref=e257]: Port 3000
+                  - paragraph [ref=e258]: port3000.1780963337@local.test
+                - cell "Usuario" [ref=e259]:
+                  - generic [ref=e260]: Usuario
+                - cell "8 jun. 2026, 7:02 p. m." [ref=e261]
+              - row "Emmanuel Salas Jimenez emma@gmail.com Usuario 8 jun. 2026, 7:01 p. m." [ref=e262] [cursor=pointer]:
+                - cell "Emmanuel Salas Jimenez emma@gmail.com" [ref=e263]:
+                  - strong [ref=e264]: Emmanuel Salas Jimenez
+                  - paragraph [ref=e265]: emma@gmail.com
+                - cell "Usuario" [ref=e266]:
+                  - generic [ref=e267]: Usuario
+                - cell "8 jun. 2026, 7:01 p. m." [ref=e268]
+              - row "Emmanuel Salas Jimenez salas@gmail.com Usuario 8 jun. 2026, 6:52 p. m." [ref=e269] [cursor=pointer]:
+                - cell "Emmanuel Salas Jimenez salas@gmail.com" [ref=e270]:
+                  - strong [ref=e271]: Emmanuel Salas Jimenez
+                  - paragraph [ref=e272]: salas@gmail.com
+                - cell "Usuario" [ref=e273]:
+                  - generic [ref=e274]: Usuario
+                - cell "8 jun. 2026, 6:52 p. m." [ref=e275]
+              - row "Usuario Fix ui.fix.1780962622@local.test Usuario 8 jun. 2026, 6:50 p. m." [ref=e276] [cursor=pointer]:
+                - cell "Usuario Fix ui.fix.1780962622@local.test" [ref=e277]:
+                  - strong [ref=e278]: Usuario Fix
+                  - paragraph [ref=e279]: ui.fix.1780962622@local.test
+                - cell "Usuario" [ref=e280]:
+                  - generic [ref=e281]: Usuario
+                - cell "8 jun. 2026, 6:50 p. m." [ref=e282]
+              - row "Proxy Test proxy.1780962604@local.test Usuario 8 jun. 2026, 6:50 p. m." [ref=e283] [cursor=pointer]:
+                - cell "Proxy Test proxy.1780962604@local.test" [ref=e284]:
+                  - strong [ref=e285]: Proxy Test
+                  - paragraph [ref=e286]: proxy.1780962604@local.test
+                - cell "Usuario" [ref=e287]:
+                  - generic [ref=e288]: Usuario
+                - cell "8 jun. 2026, 6:50 p. m." [ref=e289]
+              - row "Usuario UI ui.1780960971@local.test Usuario 8 jun. 2026, 6:22 p. m." [ref=e290] [cursor=pointer]:
+                - cell "Usuario UI ui.1780960971@local.test" [ref=e291]:
+                  - strong [ref=e292]: Usuario UI
+                  - paragraph [ref=e293]: ui.1780960971@local.test
+                - cell "Usuario" [ref=e294]:
+                  - generic [ref=e295]: Usuario
+                - cell "8 jun. 2026, 6:22 p. m." [ref=e296]
+              - row "Tester tester.1780960743@local.test Usuario 8 jun. 2026, 6:19 p. m." [ref=e297] [cursor=pointer]:
+                - cell "Tester tester.1780960743@local.test" [ref=e298]:
+                  - strong [ref=e299]: Tester
+                  - paragraph [ref=e300]: tester.1780960743@local.test
+                - cell "Usuario" [ref=e301]:
+                  - generic [ref=e302]: Usuario
+                - cell "8 jun. 2026, 6:19 p. m." [ref=e303]
+      - generic [ref=e304]:
+        - generic [ref=e305]:
+          - generic [ref=e306]:
+            - heading "Estado del sistema" [level=2] [ref=e307]
+            - paragraph [ref=e308]: Resumen operativo visible solo para administradores.
+          - img [ref=e309]
+        - generic [ref=e313]:
+          - img [ref=e314]
+          - generic [ref=e323]: API, autenticacion y reportes conectados a la base MySQL remota.
