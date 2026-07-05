@@ -1,51 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <title>Web Vulnerability Scanner — Reportes CI</title>
-  <style>
-    body{font-family:system-ui,sans-serif;margin:0;background:#f4f6f9;color:#1a1a1a}
-    .header{background:#2c3e50;color:white;padding:30px 40px}
-    h1{margin:0;font-size:24px}
-    p{margin:6px 0 0;opacity:.7;font-size:14px}
-    .grid{display:flex;flex-wrap:wrap;gap:16px;padding:30px 40px}
-    .card{background:white;border-radius:10px;padding:20px 24px;width:220px;
-          box-shadow:0 2px 8px rgba(0,0,0,.08);text-decoration:none;color:inherit;
-          border-top:4px solid #2c3e50;transition:transform .15s}
-    .card:hover{transform:translateY(-2px)}
-    .card.green{border-color:#27ae60} .card.blue{border-color:#2980b9}
-    .card.orange{border-color:#e67e22} .card.purple{border-color:#8e44ad}
-    .icon{font-size:28px;margin-bottom:8px}
-    .card h2{font-size:14px;margin:0 0 4px}
-    .card p{font-size:12px;color:#888;margin:0}
-  </style>
-</head>
-<body>
-<div class="header">
-  <h1>🛡️ Web Vulnerability Scanner</h1>
-  <p>Reportes automáticos generados por GitHub Actions — CI/CD</p>
-</div>
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<title>Web Vulnerability Scanner — Reportes CI</title>
+<style>body{font-family:system-ui;margin:0;background:#f4f6f9}
+.header{background:#2c3e50;color:white;padding:30px 40px}
+h1{margin:0;font-size:24px}p{margin:6px 0 0;opacity:.7;font-size:14px}
+.grid{display:flex;flex-wrap:wrap;gap:16px;padding:30px 40px}
+.card{background:white;border-radius:10px;padding:20px 24px;width:200px;
+      box-shadow:0 2px 8px rgba(0,0,0,.08);text-decoration:none;color:inherit;
+      border-top:4px solid #2c3e50;transition:transform .15s}
+.card:hover{transform:translateY(-2px)}.card.green{border-color:#27ae60}
+.card.blue{border-color:#2980b9}.card.orange{border-color:#e67e22}.card.purple{border-color:#8e44ad}
+.icon{font-size:28px;margin-bottom:8px}.card h2{font-size:14px;margin:0 0 4px}
+.card p{font-size:12px;color:#888;margin:0}</style></head>
+<body><div class="header"><h1>🛡️ Web Vulnerability Scanner</h1>
+<p>Reportes automáticos generados por GitHub Actions — CI/CD</p></div>
 <div class="grid">
-  <a class="card green" href="coverage/index.html">
-    <div class="icon">📊</div>
-    <h2>Cobertura de Pruebas</h2>
-    <p>Reporte pytest-cov con detalle por módulo y línea</p>
-  </a>
-  <a class="card blue" href="semgrep/semgrep-report.html">
-    <div class="icon">🔍</div>
-    <h2>Análisis Semgrep</h2>
-    <p>OWASP Top 10 + Python Security audit</p>
-  </a>
-  <a class="card orange" href="bdd/report.html">
-    <div class="icon">🥒</div>
-    <h2>Pruebas BDD</h2>
-    <p>Escenarios Gherkin con pytest-bdd</p>
-  </a>
-  <a class="card purple" href="mutations/index.html">
-    <div class="icon">🧬</div>
-    <h2>Pruebas de Mutación</h2>
-    <p>Reporte mutmut — calidad de los tests</p>
-  </a>
-</div>
-</body>
-</html>
+<a class="card green" href="coverage/index.html"><div class="icon">📊</div>
+<h2>Cobertura</h2><p>pytest-cov por módulo y línea</p></a>
+<a class="card blue" href="semgrep/semgrep-report.html"><div class="icon">🔍</div>
+<h2>Semgrep</h2><p>OWASP Top 10 + Python Security</p></a>
+<a class="card orange" href="bdd/bdd-report.html"><div class="icon">🥒</div>
+<h2>BDD</h2><p>Escenarios Gherkin con pytest-bdd</p></a>
+<a class="card purple" href="mutations/index.html"><div class="icon">🧬</div>
+<h2>Mutaciones</h2><p>Reporte mutmut</p></a>
+</div></body></html>
