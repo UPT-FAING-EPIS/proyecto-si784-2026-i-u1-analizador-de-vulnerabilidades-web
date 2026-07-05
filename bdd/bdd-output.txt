@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-7.4.4, pluggy-1.6.0 -- /opt/hostedtoolcache/Python/3.11.15/x64/bin/python
+cachedir: .pytest_cache
+rootdir: /home/runner/work/proyecto-si784-2026-i-u1-analizador-de-vulnerabilidades-web/proyecto-si784-2026-i-u1-analizador-de-vulnerabilidades-web/backend
+configfile: pytest.ini
+plugins: bdd-7.1.2, anyio-4.14.1, cov-5.0.0
+collecting ... collected 10 items
+
+tests/steps/test_scanner_steps.py::test_detectar_cabeceras_de_seguridad_faltantes PASSED [ 10%]
+tests/steps/test_scanner_steps.py::test_no_reportar_falsos_positivos_cuando_las_cabeceras_estan_presentes PASSED [ 20%]
+tests/steps/test_scanner_steps.py::test_detectar_cors_wildcard_permisivo PASSED [ 30%]
+tests/steps/test_scanner_steps.py::test_retornar_lista_vacia_cuando_el_sitio_no_responde PASSED [ 40%]
+tests/steps/test_scanner_steps.py::test_detectar_wordpress_en_el_cuerpo_de_la_respuesta PASSED [ 50%]
+tests/steps/test_scanner_steps.py::test_retornar_estructura_vacia_cuando_el_sitio_no_responde_al_detectar_tecnologias PASSED [ 60%]
+tests/steps/test_scanner_steps.py::test_construir_hallazgo_con_campos_correctos PASSED [ 70%]
+tests/steps/test_scanner_steps.py::test_truncar_evidencia_larga_a_500_caracteres PASSED [ 80%]
+tests/steps/test_scanner_steps.py::test_inyectar_payload_en_parametros_de_url_existentes PASSED [ 90%]
+tests/steps/test_scanner_steps.py::test_agregar_parametros_cuando_la_url_no_tiene_ninguno PASSED [100%]
+
+- generated xml file: /home/runner/work/proyecto-si784-2026-i-u1-analizador-de-vulnerabilidades-web/proyecto-si784-2026-i-u1-analizador-de-vulnerabilidades-web/backend/bdd-results.xml -
+============================== 10 passed in 0.16s ==============================
