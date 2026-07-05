@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<title>Mutaciones — Web Vulnerability Scanner</title>
+<style>body{font-family:system-ui;margin:0;background:#f4f6f9}
+.header{background:#2c3e50;color:white;padding:20px 30px}h1{margin:0;font-size:22px}
+.header p{margin:4px 0 0;opacity:.7;font-size:13px}.container{padding:20px 30px}
+.cards{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.card{background:white;border-radius:8px;padding:14px 18px;min-width:110px;
+border-top:3px solid #ccc;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.card .val{font-size:28px;font-weight:800;margin:0}.card .lbl{font-size:11px;color:#888;margin-top:2px}
+.bar-bg{background:#e0e0e0;border-radius:6px;height:16px;margin-bottom:8px;position:relative}
+.bar{background:#c0392b;height:16px;border-radius:6px;width:0%;
+display:flex;align-items:center;justify-content:flex-end;padding-right:8px}
+.bar span{color:white;font-size:11px;font-weight:700}
+.score-label{font-size:12px;color:#888;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;background:white;border-radius:8px;
+overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+th{background:#2c3e50;color:white;padding:10px 14px;text-align:left;font-size:12px}
+td{padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:12px;vertical-align:top}
+pre{background:#f0f4f8;padding:12px;border-radius:6px;font-size:11px;overflow-x:auto}
+</style></head>
+<body><div class="header"><h1>🧬 Pruebas de Mutaciones — Web Vulnerability Scanner</h1>
+<p>mutmut sobre scanner.py · 2026-07-05 23:18 UTC</p></div>
+<div class="container"><div class="cards">
+<div class="card" style="border-color:#c0392b"><p class="val">0%</p><p class="lbl">Mutation Score</p></div>
+<div class="card" style="border-color:#27ae60"><p class="val">0</p><p class="lbl">Matados</p></div>
+<div class="card" style="border-color:#c0392b"><p class="val">1</p><p class="lbl">Sobrevivieron</p></div>
+<div class="card" style="border-color:#95a5a6"><p class="val">1</p><p class="lbl">Total</p></div>
+</div>
+<div class="bar-bg"><div class="bar"><span>0%</span></div></div>
+<p class="score-label">Un score ≥ 70% es considerado bueno · scanner.py</p>
+<h3 style="margin:20px 0 10px;font-size:14px">Resultados por mutante</h3>
+<table><thead><tr><th>Estado</th><th>Mutante</th></tr></thead>
+<tbody><tr><td><span style="background:#c0392b;color:white;padding:2px 8px;border-radius:10px;font-size:11px">SOBREVIVIO</span></td><td>Survived 🙁 (699)</td></tr>
+</tbody></table>
+<h3 style="margin:20px 0 10px;font-size:14px">Salida completa</h3>
+<pre>To apply a mutant on disk:
+    mutmut apply &lt;id&gt;
+
+To show a mutant:
+    mutmut show &lt;id&gt;
+
+
+Survived 🙁 (699)
+
+---- scanner.py (699) ----
+
+1-7, 16, 23, 47, 49-50, 53-76, 78-79, 82-98, 100, 103, 105-120, 122-124, 126-131, 133, 135-171, 177-180, 182-185, 187-190, 192-195, 197-200, 202-205, 208-231, 237-239, 241, 243-246, 249-251, 253, 255-258, 260, 265-778
+</pre>
+</div></body></html>
