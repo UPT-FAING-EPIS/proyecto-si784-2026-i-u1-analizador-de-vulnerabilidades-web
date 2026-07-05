@@ -18,4 +18,4 @@ tests/steps/test_scanner_steps.py::test_inyectar_payload_en_parametros_de_url_ex
 tests/steps/test_scanner_steps.py::test_agregar_parametros_cuando_la_url_no_tiene_ninguno PASSED [100%]
 
 - generated xml file: /home/runner/work/proyecto-si784-2026-i-u1-analizador-de-vulnerabilidades-web/proyecto-si784-2026-i-u1-analizador-de-vulnerabilidades-web/backend/bdd-results.xml -
-============================== 10 passed in 0.16s ==============================
+============================== 10 passed in 0.12s ==============================
