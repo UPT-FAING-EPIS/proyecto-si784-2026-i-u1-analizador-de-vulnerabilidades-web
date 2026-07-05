@@ -1,0 +1,48 @@
+# /etc/systemd/system/vulnscan-backend.service
+# Copiar a: /etc/systemd/system/vulnscan-backend.service
+# Luego: systemctl daemon-reload && systemctl enable vulnscan-backend && systemctl start vulnscan-backend
+
+[Unit]
+Description=VulnScan Pro Backend (FastAPI + Gunicorn)
+Documentation=https://github.com/vulnscan
+After=network.target mysql.service
+Requires=mysql.service
+
+[Service]
+Type=exec
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/vulnscan/backend
+Environment="PATH=/opt/vulnscan/backend/venv/bin"
+
+ExecStart=/opt/vulnscan/backend/venv/bin/gunicorn main:app \
+    --worker-class uvicorn.workers.UvicornWorker \
+    --workers 4 \
+    --bind 127.0.0.1:8000 \
+    --timeout 120 \
+    --keep-alive 5 \
+    --access-logfile /var/log/vulnscan/access.log \
+    --error-logfile /var/log/vulnscan/error.log \
+    --log-level info \
+    --capture-output
+
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=always
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=vulnscan-backend
+
+# Security hardening
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/log/vulnscan /var/lib/vulnscan
+
+[Install]
+WantedBy=multi-user.target
